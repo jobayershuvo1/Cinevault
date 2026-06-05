@@ -1,0 +1,12 @@
+[
+  {
+    "id": "d1c8e8c7-007d-4b24-86ff-b6fa06bb56db",
+    "username": "jobayershuvo",
+    "email": "jobayeribnjahir@gmail.com",
+    "role": "super_admin",
+    "status": "active",
+    "created_at": "2026-06-05T08:20:12.014Z",
+    "password_hash": "9295bda6b6c00b0d73e4878bbb9afb7c6a22dcc5b3bb3f213d531480f0f1ef7577783a83ff691440fb0dddee5be279e70d985d1575e9be9ed8f1ea508b8ad432",
+    "password_salt": "fa54b675be0e9cb52dc0239fe7a56c24"
+  }
+]

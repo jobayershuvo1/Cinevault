@@ -1,0 +1,6 @@
+{
+  "name": "Movie Platform with Admin CMS",
+  "description": "An elegant, production-ready admin-controlled movie library and discovery portal with secure download redirect controls.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

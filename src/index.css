@@ -1,0 +1,140 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --color-brand-bg: #0A0A0F;
+  --color-brand-card: #1B1B2A;
+  --color-brand-accent: var(--brand-accent, #7C3AED);
+  --color-brand-secondary: var(--brand-secondary, #A855F7);
+  --color-brand-muted: #94A3B8;
+  --color-brand-glass: rgba(255, 255, 255, 0.05);
+
+  --font-sans: "Helvetica Neue", Arial, -apple-system, sans-serif;
+}
+
+/* Force global Elegant Dark theme variables and selections */
+.dark:root, .dark, .dark body, .dark #cinevault-core-application {
+  background-color: #0A0A0F !important;
+  color: #FFFFFF !important;
+  color-scheme: dark !important;
+}
+
+/* Enforce cards and popups to use the Elegant Dark card background (#1B1B2A) instead of light-mode backgrounds */
+.dark .bg-white,
+.dark .bg-slate-100\/50,
+.dark .bg-slate-100,
+.dark .bg-slate-200\/50,
+.dark .bg-slate-50 {
+  background-color: #1B1B2A !important;
+}
+
+/* Ensure secondary slate elements and header default beautifully to cinematic dark translucent layers */
+.dark .bg-slate-50\/70,
+.dark header {
+  background-color: rgba(10, 10, 15, 0.8) !important;
+  backdrop-filter: blur(10px) !important;
+}
+
+/* Map light-mode neutral text classes to Elegant Dark theme text layers to prevent dark-on-dark invisible text */
+.dark .text-neutral-800,
+.dark .text-neutral-700,
+.dark .text-neutral-900,
+.dark p.text-neutral-600 {
+  color: #FFFFFF !important;
+}
+
+.dark .text-neutral-500,
+.dark .text-neutral-400 {
+  color: #94A3B8 !important;
+}
+
+.dark .border-neutral-200,
+.dark .border-neutral-300,
+.dark .border-black\/5 {
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* Keep inputs fully premium-styled with card backgrounds and violet focus borders */
+.dark input, .dark select, .dark textarea {
+  background-color: rgba(255, 255, 255, 0.03) !important;
+  color: #FFFFFF !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+.dark input::placeholder {
+  color: #94A3B8 !important;
+  opacity: 0.7;
+}
+
+/* Desktop sidebar adjustment */
+.dark #desktop-sidebar {
+  background-color: rgba(27, 27, 42, 0.9) !important; /* #1B1B2A layout fallback background */
+  border-right: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+
+/* Custom globally applied modern scrollbars and visual effects */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #0A0A0F;
+}
+::-webkit-scrollbar-thumb {
+  background: #1B1B2A;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--brand-accent, #7C3AED);
+}
+
+/* Accent selection background */
+::selection {
+  background: rgba(var(--brand-glow, 124, 58, 237), 0.45);
+  color: #FFFFFF;
+}
+
+/* Custom glow animation classes for elegant dark card styles */
+.brand-glow {
+  box-shadow: 0 0 15px rgba(var(--brand-glow, 124, 58, 237), 0.4);
+}
+
+.brand-glow-hover:hover {
+  border-color: var(--brand-accent, #7C3AED) !important;
+  box-shadow: 0 0 15px rgba(var(--brand-glow, 124, 58, 237), 0.3) !important;
+}
+
+/* Fallback base styles for clean inputs */
+input:focus, select:focus, textarea:focus {
+  border-color: var(--brand-accent, #7C3AED) !important;
+  outline: none;
+  box-shadow: 0 0 10px rgba(var(--brand-glow, 124, 58, 237), 0.2) !important;
+}
+
+/* Selected state styling for active dashboard stats cards */
+.stat-card-selected-brand {
+  border-color: var(--brand-accent) !important;
+  background-color: rgba(var(--brand-glow, 124, 58, 237), 0.12) !important;
+  box-shadow: 0 0 20px rgba(var(--brand-glow, 124, 58, 237), 0.35) !important;
+}
+.dark .stat-card-selected-brand {
+  background-color: rgba(var(--brand-glow, 124, 58, 237), 0.22) !important;
+}
+
+.stat-card-selected-emerald {
+  border-color: #10B981 !important;
+  background-color: rgba(16, 185, 129, 0.1) !important;
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.35) !important;
+}
+.dark .stat-card-selected-emerald {
+  background-color: rgba(16, 185, 129, 0.2) !important;
+}
+
+.stat-card-selected-amber {
+  border-color: #F59E0B !important;
+  background-color: rgba(245, 158, 11, 0.1) !important;
+  box-shadow: 0 0 20px rgba(245, 158, 11, 0.35) !important;
+}
+.dark .stat-card-selected-amber {
+  background-color: rgba(245, 158, 11, 0.2) !important;
+}
