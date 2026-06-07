@@ -62,6 +62,7 @@ export default function App() {
     totalUsers: number;
     totalMovies: number;
     totalDrafts?: number;
+    totalPendingRequests?: number;
     pageViews: number;
     uniqueVisitors: number;
     activeOnline?: number;
@@ -970,7 +971,7 @@ export default function App() {
                 const isDraftsSelected = (currentPath === '/admin/movies' || currentPath === '/admin') && adminMoviesFilter === 'draft';
 
                 return adminStats && (
-                  <div id="admin-analytics-kpi-grid" className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3.5 p-3.5 bg-slate-100/50 dark:bg-[#1B1B2A]/50 backdrop-blur-md border border-neutral-200 dark:border-white/5 rounded-2xl">
+                  <div id="admin-analytics-kpi-grid" className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3.5 p-3.5 bg-slate-100/50 dark:bg-[#1B1B2A]/50 backdrop-blur-md border border-neutral-200 dark:border-white/5 rounded-2xl">
                     {/* KPI: Subscribers */}
                     <button
                       onClick={() => navigate('/admin/users')}
@@ -1072,6 +1073,39 @@ export default function App() {
                       </div>
                     </button>
 
+                    {/* KPI: Movie Requests */}
+                    <button
+                      onClick={() => {
+                        navigate('/admin/requests');
+                      }}
+                      className={`p-3.5 rounded-2xl border transition-all duration-300 text-left w-full select-none cursor-pointer flex flex-col justify-between gap-3 ${
+                        currentPath === '/admin/requests'
+                          ? 'stat-card-selected-brand scale-[1.02] z-10'
+                          : 'bg-white/70 dark:bg-[#1B1B2A]/70 border-neutral-200/50 dark:border-white/5 hover:translate-y-[-2px] hover:border-blue-500/40 hover:bg-white dark:hover:bg-[#1B1B2A] hover:shadow-lg hover:shadow-blue-500/5'
+                      }`}
+                    >
+                      <div className="flex items-center justify-between w-full">
+                        <div className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 transition-all ${
+                          currentPath === '/admin/requests'
+                            ? 'bg-blue-500 text-white shadow-md' 
+                            : 'bg-blue-500/10 text-blue-500'
+                        }`}>
+                          <HelpCircle className="w-4 h-4" />
+                        </div>
+                        <span className={`text-[8px] font-black uppercase tracking-widest px-1.5 py-0.5 rounded-md shrink-0 select-none transition-all ${
+                          currentPath === '/admin/requests'
+                            ? 'bg-blue-500 text-white font-extrabold' 
+                            : 'bg-blue-500/10 text-blue-500'
+                        }`}>
+                          View
+                        </span>
+                      </div>
+                      <div className="min-w-0">
+                        <p className="text-[9px] text-neutral-400 dark:text-neutral-500 uppercase font-black tracking-wider truncate">Requests</p>
+                        <h4 className="text-xl sm:text-2xl font-black text-neutral-800 dark:text-neutral-50 font-mono leading-none mt-1">{adminStats.totalPendingRequests ?? 0}</h4>
+                      </div>
+                    </button>
+
                     {/* KPI: Online Now (Real-Time Live Concurrent Users) */}
                     <div className="p-3.5 bg-white/70 dark:bg-[#1B1B2A]/70 rounded-2xl border border-neutral-200/50 dark:border-white/5 flex flex-col justify-between gap-3 select-none hover:translate-y-[-1px] hover:shadow-md transition-all text-left w-full">
                       <div className="flex items-center justify-between w-full">
@@ -1094,7 +1128,7 @@ export default function App() {
                     </div>
 
                     {/* KPI: Page Views (Page Hits) */}
-                    <div className="p-3.5 bg-white/70 dark:bg-[#1B1B2A]/70 rounded-2xl border border-neutral-200/50 dark:border-white/5 flex flex-col justify-between gap-3 select-none hover:translate-y-[-1px] hover:shadow-md transition-all text-left w-full col-span-2 md:col-span-1 lg:col-span-1">
+                    <div className="p-3.5 bg-white/70 dark:bg-[#1B1B2A]/70 rounded-2xl border border-neutral-200/50 dark:border-white/5 flex flex-col justify-between gap-3 select-none hover:translate-y-[-1px] hover:shadow-md transition-all text-left w-full">
                       <div className="flex items-center justify-between w-full">
                         <div className="w-8 h-8 rounded-lg bg-violet-500/10 text-violet-500 dark:text-violet-400 flex items-center justify-center shrink-0">
                           <Eye className="w-4 h-4" />

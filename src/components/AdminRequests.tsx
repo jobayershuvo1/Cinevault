@@ -117,8 +117,16 @@ export default function AdminRequests({ token, currentUser, onStartUpload }: Adm
             placeholder="Search movie title, requester name..."
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            className="w-full bg-slate-100/40 dark:bg-[#1B1B2A]/60 border border-[#000000]/10 dark:border-white/5 rounded-xl pl-10 pr-4 py-2 text-xs text-neutral-800 dark:text-white"
+            className="w-full bg-slate-100/40 dark:bg-[#1B1B2A]/60 border border-[#000000]/10 dark:border-white/5 rounded-xl pl-10 pr-10 py-2 text-xs text-neutral-800 dark:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-brand-accent/50"
           />
+          {query && (
+            <button
+              onClick={() => setQuery('')}
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-neutral-400 hover:text-neutral-600 dark:hover:text-neutral-200"
+            >
+              <X className="w-4 h-4" />
+            </button>
+          )}
         </div>
 
         {/* Tab filters */}

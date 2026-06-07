@@ -1025,12 +1025,14 @@ app.get(
       const moviesList = getMovies();
       const analytics = getAnalytics() as any;
       const downloads = getDownloads();
+      const requests = getRequests();
 
       const totalUsers = profiles.length;
       const activeUsers = profiles.filter(p => p.status === "active").length;
       const totalMovies = moviesList.length;
       const totalPublished = moviesList.filter(m => m.status === "published").length;
       const totalDrafts = moviesList.filter(m => m.status === "draft").length;
+      const totalPendingRequests = requests.filter(r => r.status === "pending").length;
 
       // Clean up old active sessions/tabs (> 15 seconds)
       const now = Date.now();
@@ -1063,6 +1065,7 @@ app.get(
         totalMovies,
         totalPublished,
         totalDrafts,
+        totalPendingRequests,
         pageViews: analytics.pageViews || 0,
         uniqueVisitors: (analytics.uniqueVisitors || []).length,
         activeOnline,

@@ -11,6 +11,7 @@ interface AdminHubDashboardProps {
     totalMovies: number;
     totalPublished: number;
     totalDrafts: number;
+    totalPendingRequests?: number;
     pageViews: number;
     uniqueVisitors: number;
     activeOnline: number;
